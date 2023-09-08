@@ -1,13 +1,12 @@
-import log from '@/utils/logger';
 import databaseService from './instant.db';
-import c from 'config';
-
-const configDB = c.get<{ name: string }>('db');
+import log from '../utils/logger';
 
 try {
    databaseService.createPool();
 } catch (error) {
-   log.error(`Failed to connect to database ${configDB.name}`, error);
+   log.error(`Error while connecting to database: ${error}`);
 }
-const DB = databaseService.getPool(configDB.name);
+
+const DB = databaseService.getPool('instant');
+
 export default DB;

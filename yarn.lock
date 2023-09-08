@@ -84,10 +84,10 @@
   dependencies:
     "@types/express" "*"
 
-"@types/config@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.npmjs.org/@types/config/-/config-3.3.0.tgz"
-  integrity sha512-9kZSbl3/X3TVNowLCu5HFQdQmD+4287Om55avknEYkuo6R2dDrsp/EXEHUFvfYeG7m1eJ0WYGj+cbcUIhARJAQ==
+"@types/config@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@types/config/-/config-3.3.1.tgz#eb385f254cd08381db4dda7b9bef4cc2fd400e5d"
+  integrity sha512-ZhBk8IVIbc3cuES10j2I+xa3L68rpl1X35FdsNce/AiE7yJnhQaA7tvO5MRZblqpBny4OIddJ+WQL04I1933Zg==
 
 "@types/connect@*":
   version "3.4.35"
@@ -454,7 +454,7 @@ concat-map@0.0.1:
 
 config@^3.3.9:
   version "3.3.9"
-  resolved "https://registry.npmjs.org/config/-/config-3.3.9.tgz"
+  resolved "https://registry.yarnpkg.com/config/-/config-3.3.9.tgz#27fae95b43e0e1d5723e54143c090954d8e49572"
   integrity sha512-G17nfe+cY7kR0wVpc49NCYvNtelm/pPy8czHoFkAgtV1lkmcp7DHtWCdDu+C9Z7gb2WVqa9Tm3uF9aKaPbCfhg==
   dependencies:
     json5 "^2.2.3"
