@@ -17,7 +17,7 @@ class databaseService {
    };
    getPool = (databaseName: string) => {
       const pool = this.pool;
-
+      
       if (!pool) {
          throw new Error(`Pool for \`${databaseName}\` is not defined`);
       }
