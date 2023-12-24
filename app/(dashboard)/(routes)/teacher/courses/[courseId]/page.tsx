@@ -77,7 +77,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
                                    Complete all fields {completionText}
                               </span>
                          </div>
-                         {/* <Actions  /> */}
+                         <Actions disabled={!isComplete} courseId={params.courseId} isPushlished={course.isPublished} />
                     </div>
                </div>
 
