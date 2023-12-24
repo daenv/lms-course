@@ -41,9 +41,6 @@ function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValu
                columnFilters: columnsFilters,
           }
      })
-
-
-
      return (
           <div>
                <div className='flex items-center py-4 justify-between'>
@@ -106,5 +103,4 @@ function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValu
           </div>
      )
 }
-
 export default DataTable
