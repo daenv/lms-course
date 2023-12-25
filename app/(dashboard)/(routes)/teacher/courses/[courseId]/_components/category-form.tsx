@@ -38,7 +38,7 @@ export const CategoryFrom = ({initialData, courseId, options}: CategoryFormProps
     const {isSubmitting, isValid} = form.formState
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
     }
-    // const selectedOption = options.find((option) => option.value === initialData.categoryId)
+     const selectedOption = options.find((option) => option.value === initialData.categoryId)
     return (
         <div className={'mt-6 border bg-slate-100 rounded-md p-4'}>
             <div className={'font-medium flex items-center justify-between'}>
