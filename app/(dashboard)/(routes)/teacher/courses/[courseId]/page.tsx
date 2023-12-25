@@ -5,13 +5,16 @@ import {redirect} from 'next/navigation'
 import React from 'react'
 import {Actions} from './_components/action/actions'
 import {IconBadge} from '@/components/icon-badge/icon-bage'
-import {CircleDollarSign, LayoutDashboard, ListChecks} from 'lucide-react'
+import {CircleDollarSign, Files, LayoutDashboard, ListChecks} from 'lucide-react'
 import {TitleForm} from './_components/title/title-form'
 import {DescriptionForm} from './_components/description/description-form'
 import {ImageForm} from './_components/img/ImageForm'
 import {CategoryFrom} from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/category/category-form";
 import {ChapterForm} from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/chapter/chaptersform";
 import {PriceForm} from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/price/price-form";
+import {
+    AttachmentForm
+} from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/attachment/attachmemt-form";
 
 const CourseIdPage = async ({params}: { params: { courseId: string } }) => {
 
@@ -117,6 +120,18 @@ const CourseIdPage = async ({params}: { params: { courseId: string } }) => {
                                 <h2 className='text-xl'>Course Pricing</h2>
                             </div>
                             <PriceForm initialData={course} courseId={params.courseId}/>
+                        </div>
+                        <div>
+                            <div className="flex items-center gap-x-2">
+                                <IconBadge icon={Files}/>
+                                <h2 className="text-xl">
+                                    Resources & Attachments
+                                </h2>
+                            </div>
+                            <AttachmentForm
+                                initialData={course}
+                                courseId={course.id}
+                            />
                         </div>
                     </div>
 
