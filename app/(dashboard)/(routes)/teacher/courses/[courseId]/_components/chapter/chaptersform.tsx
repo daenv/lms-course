@@ -61,7 +61,7 @@ export const ChapterForm = ({initialData, courseId}: ChapterFormProps) => {
         }
     }
     const isEdit = (id: string) => {
-        router.push(`/teacher/course/${courseId}/chapters/${id}`)
+        router.push(`/teacher/courses/${courseId}/chapters/${id}`)
     }
     const {isSubmitting, isValid} = form.formState
     return (

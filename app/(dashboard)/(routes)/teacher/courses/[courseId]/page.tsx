@@ -1,24 +1,24 @@
-import {Banner} from '@/components/banner/banner'
-import {db} from '@/lib/db'
-import {auth} from '@clerk/nextjs'
-import {redirect} from 'next/navigation'
+import { Banner } from '@/components/banner/banner'
+import { db } from '@/lib/db'
+import { auth } from '@clerk/nextjs'
+import { redirect } from 'next/navigation'
 import React from 'react'
-import {Actions} from './_components/action/actions'
-import {IconBadge} from '@/components/icon-badge/icon-bage'
-import {CircleDollarSign, Files, LayoutDashboard, ListChecks} from 'lucide-react'
-import {TitleForm} from './_components/title/title-form'
-import {DescriptionForm} from './_components/description/description-form'
-import {ImageForm} from './_components/img/ImageForm'
-import {CategoryFrom} from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/category/category-form";
-import {ChapterForm} from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/chapter/chaptersform";
-import {PriceForm} from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/price/price-form";
+import { Actions } from './_components/action/actions'
+import { IconBadge } from '@/components/icon-badge/icon-bage'
+import { CircleDollarSign, Files, LayoutDashboard, ListChecks } from 'lucide-react'
+import { TitleForm } from './_components/title/title-form'
+import { DescriptionForm } from './_components/description/description-form'
+import { ImageForm } from './_components/img/ImageForm'
+import { CategoryFrom } from "./_components/category/category-form";
+import { ChapterForm } from "./_components/chapter/chaptersform";
+import { PriceForm } from "./_components/price/price-form";
 import {
     AttachmentForm
-} from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/attachment/attachmemt-form";
+} from "./_components/attachment/attachmemt-form";
 
-const CourseIdPage = async ({params}: { params: { courseId: string } }) => {
+const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
 
-    const {userId} = auth()
+    const { userId } = auth()
 
     if (!userId) {
         return redirect('/')
@@ -72,7 +72,7 @@ const CourseIdPage = async ({params}: { params: { courseId: string } }) => {
     return (
         <>
             {!course.isPublished && (
-                <Banner label={"This course is unpublished. It will not be visible to the students."}/>
+                <Banner label={"This course is unpublished. It will not be visible to the students."} />
             )}
 
             <div className='p-6'>
@@ -82,48 +82,48 @@ const CourseIdPage = async ({params}: { params: { courseId: string } }) => {
                             Course setup
                         </h1>
                         <span className='text-sm text-slate-700'>
-                                   Complete all fields {completionText}
-                              </span>
+                            Complete all fields {completionText}
+                        </span>
                     </div>
-                    <Actions disabled={!isComplete} courseId={params.courseId} isPublished={course.isPublished}/>
+                    <Actions disabled={!isComplete} courseId={params.courseId} isPublished={course.isPublished} />
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-16'>
                     <div>
                         <div className="flex items-center gap-x-2">
-                            <IconBadge icon={LayoutDashboard}/>
+                            <IconBadge icon={LayoutDashboard} />
                             <h2 className='text-xl'>
                                 Customize your course
                             </h2>
                         </div>
-                        <TitleForm initialData={course} courseId={params.courseId}/>
-                        <DescriptionForm initialData={course} courseId={params.courseId}/>
-                        <ImageForm initialData={course} courseId={params.courseId}/>
+                        <TitleForm initialData={course} courseId={params.courseId} />
+                        <DescriptionForm initialData={course} courseId={params.courseId} />
+                        <ImageForm initialData={course} courseId={params.courseId} />
                         <CategoryFrom initialData={course} courseId={params.courseId}
-                                      options={categories.map((category) => ({
-                                          label: category.name,
-                                          value: category.id
-                                      }))}/>
+                            options={categories.map((category) => ({
+                                label: category.name,
+                                value: category.id
+                            }))} />
                     </div>
                     <div className={'space-y-6'}>
                         <div>
                             <div className={'flex items-center gap-x-2'}>
-                                <IconBadge icon={ListChecks}/>
+                                <IconBadge icon={ListChecks} />
                                 <h2 className='text-xl'>
                                     Course Chapters
                                 </h2>
                             </div>
-                            <ChapterForm initialData={course} courseId={params.courseId}/>
+                            <ChapterForm initialData={course} courseId={params.courseId} />
                         </div>
                         <div>
                             <div className={'flex items-center gap-x-2'}>
-                                <IconBadge icon={CircleDollarSign}/>
+                                <IconBadge icon={CircleDollarSign} />
                                 <h2 className='text-xl'>Course Pricing</h2>
                             </div>
-                            <PriceForm initialData={course} courseId={params.courseId}/>
+                            <PriceForm initialData={course} courseId={params.courseId} />
                         </div>
                         <div>
                             <div className="flex items-center gap-x-2">
-                                <IconBadge icon={Files}/>
+                                <IconBadge icon={Files} />
                                 <h2 className="text-xl">
                                     Resources & Attachments
                                 </h2>
