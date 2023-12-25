@@ -5,11 +5,12 @@ import {redirect} from 'next/navigation'
 import React from 'react'
 import {Actions} from './_components/actions'
 import {IconBadge} from '@/components/icon-badge/icon-bage'
-import {LayoutDashboard} from 'lucide-react'
+import {LayoutDashboard, ListChecks} from 'lucide-react'
 import {TitleForm} from './_components/title-form'
 import {DescriptionForm} from './_components/description-form'
 import {ImageForm} from './_components/ImageForm'
 import {CategoryFrom} from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/category-form";
+import {ChapterForm} from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/chapter/chaptersform";
 
 const CourseIdPage = async ({params}: { params: { courseId: string } }) => {
 
@@ -93,7 +94,22 @@ const CourseIdPage = async ({params}: { params: { courseId: string } }) => {
                         <TitleForm initialData={course} courseId={params.courseId}/>
                         <DescriptionForm initialData={course} courseId={params.courseId}/>
                         <ImageForm initialData={course} courseId={params.courseId}/>
-                        <CategoryFrom />
+                        <CategoryFrom initialData={course} courseId={params.courseId}
+                                      options={categories.map((category) => ({
+                                          label: category.name,
+                                          value: category.id
+                                      }))}/>
+                    </div>
+                    <div className={'space-y-6'}>
+                        <div>
+                            <div className={'flex items-center gap-x-2'}>
+                                <IconBadge icon={ListChecks}/>
+                                <h2 className='text-xl'>
+                                    Course Chapters
+                                </h2>
+                            </div>
+                            <ChapterForm initialData={course} courseId={params.courseId}/>
+                        </div>
                     </div>
                 </div>
             </div>

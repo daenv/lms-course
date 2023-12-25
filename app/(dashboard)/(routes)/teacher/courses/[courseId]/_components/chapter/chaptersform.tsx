@@ -88,18 +88,27 @@ export const ChapterForm = ({initialData, courseId}: ChapterFormProps) => {
 
             {isCreating && (
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className={'space-y-4 mt-4'}>
-                        <FormField name={'title'} control={form.control} render={
-                            ({field}) => (
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
+                        <FormField
+                            control={form.control}
+                            name="title"
+                            render={({field}) => (
                                 <FormItem>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} placeholder={'e.g. Introduction to the course'}/>
+                                        <Input
+                                            disabled={isSubmitting}
+                                            placeholder="e.g. 'Introduction to the course'"
+                                            {...field}
+                                        />
                                     </FormControl>
                                     <FormMessage/>
                                 </FormItem>
-                            )
-                        }/>
-                        <Button disabled={!isValid || isSubmitting} type={'submit'}>
+                            )}
+                        />
+                        <Button
+                            disabled={!isValid || isSubmitting}
+                            type="submit"
+                        >
                             Create
                         </Button>
                     </form>
