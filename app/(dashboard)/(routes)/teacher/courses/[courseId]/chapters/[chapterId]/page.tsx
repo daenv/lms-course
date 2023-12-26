@@ -1,10 +1,11 @@
+
 import { Banner } from "@/components/banner/banner";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ChapterAction } from "./_components/action";
+import { ChapterActions } from "./_components/";
 
 
 const ChapterIdPage = async ({ params }: { params: { courseId: string; chapterId: string } }) => {
@@ -56,8 +57,8 @@ const ChapterIdPage = async ({ params }: { params: { courseId: string; chapterId
                                 <span className="text-sm text-slate-700"> Complete all fields {completedFields}</span>
                             </div>
                             {/* Chapter Action */}
-                            <ChapterAction
-                                onPublished={chapter.isPublished}
+                            <ChapterActions
+                                isPublished={chapter.isPublished}
                                 courseId={params.courseId}
                                 chapterId={params.chapterId}
                                 disabled={!isComplete} />
