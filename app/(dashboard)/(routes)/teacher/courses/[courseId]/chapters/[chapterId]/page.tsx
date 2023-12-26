@@ -2,10 +2,11 @@
 import { Banner } from "@/components/banner/banner";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, LayoutDashboard } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ChapterActions } from "./_components/";
+import { ChapterActions,ChapterTitleForm } from "./_components/";
+import { IconBadge } from "@/components/icon-badge";
 
 
 const ChapterIdPage = async ({ params }: { params: { courseId: string; chapterId: string } }) => {
@@ -48,21 +49,36 @@ const ChapterIdPage = async ({ params }: { params: { courseId: string; chapterId
                             href={`/teacher/courses/${params.courseId}`}
                             className="flex items-center text-sm hover:opacity-75 transition mb-6"
                         >
-                            <ArrowLeft className="w-4 h-4 mr-2" />
+                            <ArrowLeft className="h-4 w-4 mr-2" />
                             Back to course setup
                         </Link>
                         <div className="flex items-center justify-between w-full">
-                            <div className="flex flex-col gap-x-2">
-                                <h1 className="text-2xl font-medium">Chapter Creation</h1>
-                                <span className="text-sm text-slate-700"> Complete all fields {completedFields}</span>
+                            <div className="flex flex-col gap-y-2">
+                                <h1 className="text-2xl font-medium">
+                                    Chapter Creation
+                                </h1>
+                                <span className="text-sm text-slate-700">
+                                    Complete all fields {completionText}
+                                </span>
                             </div>
-                            {/* Chapter Action */}
                             <ChapterActions
-                                isPublished={chapter.isPublished}
+                                disabled={!isComplete}
                                 courseId={params.courseId}
                                 chapterId={params.chapterId}
-                                disabled={!isComplete} />
-
+                                isPublished={chapter.isPublished}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-16'>
+                    <div className="space-y-4">
+                        <div>
+                            <div className="flex items-center gap-x-2">
+                                <IconBadge icon={LayoutDashboard} />
+                                <h2 className="text-xl"> Customize your chapter</h2>
+                            </div>
+                            {/* Chapter Title Form */}
+                            <ChapterTitleForm initialData={chapter} courseId={params.courseId} chapterId={params.chapterId} />
                         </div>
                     </div>
                 </div>
