@@ -3,18 +3,12 @@ import { db } from '@/lib/db'
 import { auth } from '@clerk/nextjs'
 import { redirect } from 'next/navigation'
 import React from 'react'
-import { Actions } from './_components/action/actions'
+import { } from './_components/action/actions'
 import { IconBadge } from '@/components/icon-badge/icon-bage'
 import { CircleDollarSign, Files, LayoutDashboard, ListChecks } from 'lucide-react'
-import { TitleForm } from './_components/title/title-form'
-import { DescriptionForm } from './_components/description/description-form'
-import { ImageForm } from './_components/img/ImageForm'
-import { CategoryFrom } from "./_components/category/category-form";
-import { ChapterForm } from "./_components/chapter/chaptersform";
-import { PriceForm } from "./_components/price/price-form";
-import {
-    AttachmentForm
-} from "./_components/attachment/attachmemt-form";
+import { TitleForm, PriceForm, DescriptionForm, ImageForm, CategoryFrom, ChapterForm, Actions, AttachmentForm } from './_components/'
+
+
 
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
 

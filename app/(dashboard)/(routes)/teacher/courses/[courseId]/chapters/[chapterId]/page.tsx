@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ChapterAction } from "./_components/access";
+import { ChapterAction } from "./_components/action";
 
 
 const ChapterIdPage = async ({ params }: { params: { courseId: string; chapterId: string } }) => {
