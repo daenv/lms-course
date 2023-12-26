@@ -79,6 +79,8 @@ const ChapterIdPage = async ({ params }: { params: { courseId: string; chapterId
                             </div>
                             {/* Chapter Title Form */}
                             <ChapterTitleForm initialData={chapter} courseId={params.courseId} chapterId={params.chapterId} />
+                            {/* Chapter description */}
+                            
                         </div>
                     </div>
                 </div>
