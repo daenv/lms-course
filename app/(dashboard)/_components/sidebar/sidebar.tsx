@@ -1,5 +1,5 @@
-import {Logo} from "./logo";
-import SidebarRoutes from "./sidebar-routes";
+import {Logo} from "../logo/logo";
+import SidebarRoutes from "./_components/sidebar-routes";
 export const Sidebar = () => {
     return (
         <div className='h-full border-r flex flex-col overflow-y-auto bg-white shadow-sm'>

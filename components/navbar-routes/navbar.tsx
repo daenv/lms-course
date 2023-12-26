@@ -4,7 +4,9 @@ import {useAuth, UserButton} from "@clerk/nextjs";
 import {usePathname} from "next/navigation";
 import {LogOut} from "lucide-react";
 import Link from "next/link";
-import {Button} from "@/components/ui/button";
+
+import React from "react";
+import { Button } from '@/components/ui/button';
 
 export const NavbarRoutes = () => {
     const {userId} = useAuth();
