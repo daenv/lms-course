@@ -2,10 +2,10 @@
 import { Banner } from "@/components/banner/banner";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
-import { ArrowLeft, LayoutDashboard,Eye } from "lucide-react";
+import { ArrowLeft, LayoutDashboard, Eye ,Video} from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ChapterActions,ChapterDescriptionForm,ChapterTitleForm } from "./_components/";
+import { ChapterActions, ChapterDescriptionForm, ChapterTitleForm, ChapterVideoForm } from "./_components/";
 import { IconBadge } from "@/components/icon-badge";
 import { ChapterAccessForm } from "./_components/access";
 
@@ -89,7 +89,20 @@ const ChapterIdPage = async ({ params }: { params: { courseId: string; chapterId
                                 <h2 className="text-xl"> Chapter Access</h2>
                             </div>
                             <ChapterAccessForm initialData={chapter} courseId={params.courseId} chapterId={params.chapterId} />
-                       </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="flex items-center gap-x-2">
+                            <IconBadge icon={Video} />
+                            <h2 className="text-xl">
+                                Add a video
+                            </h2>
+                        </div>
+                        <ChapterVideoForm
+                            initialData={chapter}
+                            chapterId={params.chapterId}
+                            courseId={params.courseId}
+                        />
                     </div>
                 </div>
             </div>
