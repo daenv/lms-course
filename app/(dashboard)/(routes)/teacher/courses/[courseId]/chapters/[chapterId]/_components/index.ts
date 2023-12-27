@@ -1,4 +1,5 @@
 import { ChapterActions } from './action/chapterAction';
 import { ChapterTitleForm } from './title';
 import { ChapterDescriptionForm } from './description';
-export { ChapterActions , ChapterTitleForm, ChapterDescriptionForm};
+import { ChapterVideoForm } from './video';
+export { ChapterActions , ChapterTitleForm, ChapterDescriptionForm,ChapterVideoForm};
