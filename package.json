@@ -13,6 +13,8 @@
     "@hello-pangea/dnd": "^16.5.0",
     "@hookform/resolvers": "^3.3.2",
     "@mux/mux-node": "^7.3.3",
+    "@mux/mux-player": "^2.3.0",
+    "@mux/mux-player-react": "^2.3.0",
     "@prisma/client": "^5.6.0",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-checkbox": "^1.0.4",
